@@ -11,6 +11,9 @@
         darkMode: 'class',
         theme: {
           extend: {
+            backgroundImage: {
+              'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
+            },
             colors: {
               primary: {
                 DEFAULT: '#0EA5E9', // Sky 500
@@ -33,7 +36,7 @@
             animation: {
               'fade-in': 'fadeIn 0.5s ease-out',
               'slide-up': 'slideUp 0.5s ease-out',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'pulse-slow': 'breathe 15s ease-in-out infinite',
               'gradient-xy': 'gradient-xy 15s ease infinite',
             },
             keyframes: {
@@ -44,6 +47,10 @@
               slideUp: {
                 '0%': { transform: 'translateY(20px)', opacity: '0' },
                 '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              breathe: {
+                '0%, 100%': { transform: 'scale(1.05)' },
+                '50%': { transform: 'scale(1.15)' },
               },
               'gradient-xy': {
                 '0%, 100%': {
