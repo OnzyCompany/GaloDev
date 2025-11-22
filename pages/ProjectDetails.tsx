@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useData } from '../services/dataStore';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import { MediaType } from '../types';
+import SEO from '../components/SEO';
 
 const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,9 +23,16 @@ const ProjectDetails = () => {
 
   const category = categories.find(c => c.id === project.categoryId);
   const sortedMedia = [...project.media].sort((a, b) => (a.isMain === b.isMain ? 0 : a.isMain ? -1 : 1));
+  const mainImage = sortedMedia.find(m => m.type === MediaType.IMAGE)?.url;
 
   return (
     <div className="min-h-screen pt-24 pb-20 px-6">
+      <SEO 
+        title={project.title}
+        description={project.description}
+        image={mainImage}
+      />
+
       <div className="container mx-auto max-w-6xl">
         <button onClick={() => navigate(-1)} className="group flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors">
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />

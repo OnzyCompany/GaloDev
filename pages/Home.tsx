@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../services/dataStore';
 import ProjectCard from '../components/ProjectCard';
+import SEO from '../components/SEO';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Home = () => {
@@ -12,6 +13,10 @@ const Home = () => {
 
   return (
     <div className="min-h-screen pt-20 pb-20">
+      <SEO 
+        title="Home" 
+        description={`${profile.shortBio} Portfolio of ${profile.name} - Roblox VFX Artist & Developer.`} 
+      />
       
       {/* Hero Section */}
       <section className="min-h-[85vh] flex flex-col items-center justify-center text-center px-6 relative z-10">

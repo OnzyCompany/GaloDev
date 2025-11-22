@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { DataProvider } from './services/dataStore';
+import { HelmetProvider } from 'react-helmet-async';
 import BlueShaderBackground from './components/BlueShaderBackground';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -49,11 +50,13 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <DataProvider>
-      <HashRouter>
-        <AppContent />
-      </HashRouter>
-    </DataProvider>
+    <HelmetProvider>
+      <DataProvider>
+        <HashRouter>
+          <AppContent />
+        </HashRouter>
+      </DataProvider>
+    </HelmetProvider>
   );
 };
 
